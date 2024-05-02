@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+      // right click to element and attribute modifications shows in devtools here
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
 
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      // Regular
+      console.log("Regular Hello");
+      // Interpolated
+      let X = "DOGS IN THE TOWN ES6";
+      console.log("Hello I am a %s string!", "INCREDABLE");
+      console.log(`Hello this is interpolation of ${X}`);
+      // Styled
+      console.log(
+        "%c I am some white and red bg text",
+        "background:red;colo:white;"
+      );
 
-    function makeGreen() {
-      const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
-
-    // Regular
-
-    // Interpolated
-
-    // Styled
-
-    // warning!
-
-    // Error :|
-
-    // Info
-
-    // Testing
-
-    // clearing
-
-    // Viewing DOM Elements
-
-    // Grouping together
-
-    // counting
-
-    // timing
-
-  </script>
-</body>
+      // warning!
+      console.warn("Oh Noo Error text with yellow");
+      // Error :|
+      console.error(
+        "Some mistakes that you done is not relavent to this topic"
+      );
+      // Info
+      console.info("Hey have you ever heard this");
+      // Testing
+      console.assert(
+        1 === 2,
+        "checked and apperantly wrong else nothing should be in here"
+      );
+      // clearing
+      //console.clear();
+      // Viewing DOM Elements
+      // console.log(p);
+      // console.dir(p);
+      console.clear();
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.group(`${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log("%a is %b dog years old.", dog.name, dog.age * 7);
+        console.groupEnd(`${dog.name}`);
+      });
+      // counting
+      console.count("Word, Object ,number bla bla");
+      console.count("Word, Object ,number bla bla");
+      console.count("Word, Object ,number bbla");
+      console.count("Word, Object ,number bbla");
+      console.count("Word, Object ,number bla bla");
+      console.count("Word, Object ,number bla bla");
+      console.count("Word, Object ,number bla bla");
+      console.count("Word, Object ,number bla ");
+      // timing
+      console.time("fetching data");
+      fetch("https://api.github.com/user/wesbos")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("fetching data");
+        });
+      //table
+      console.table(dogs);
+      dogs.forEach((dog) => console.table(dog));
+    </script>
+  </body>
 </html>
