@@ -7,6 +7,20 @@
     <link rel="icon" href="https://fav.farm/🔥" />
   </head>
   <body>
-    <script></script>
+    <script>
+      const pressedKeys = [];
+      const secretCode = "maythe4";
+      window.addEventListener("keyup", (e) => {
+        pressedKeys.push(e.key);
+        pressedKeys.splice(
+          -secretCode.length - 1,
+          pressedKeys.length - secretCode.length
+        ); //giving starting point then how long
+        const pressedCode = pressedKeys.join(""); //if it will be concat still is an array
+        if (pressedCode == secretCode) {
+          cornify_add();
+        }
+      });
+    </script>
   </body>
 </html>
