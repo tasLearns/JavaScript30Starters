@@ -42,6 +42,7 @@
         const [height, width] = [hero.offsetHeight, hero.offsetWidth];
         let [mouseX, mouseY] = [e.offsetX, e.offsetY];
         if (this !== e.target) {
+          //this what is listened cause of to eventlistener, target where mouse is
           mouseX = mouseX + e.target.offsetLeft;
           mouseY = mouseY + e.target.offsetTop;
         }
